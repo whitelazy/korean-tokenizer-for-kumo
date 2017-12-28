@@ -1,8 +1,4 @@
 language: java
-before_script:
- - "echo $JAVA_OPTS"
- - "export JAVA_OPTS=-Xmx512m"
-script: "[ ${TRAVIS_PULL_REQUEST} = 'false' ] && mvn -e clean deploy --settings settings.xml || mvn -e clean verify --settings settings.xml"
 jdk:
   - oraclejdk8
 branches:
@@ -10,5 +6,3 @@ branches:
     - master
 
 sudo: false
-after_success:
-  - mvn scoverage:report coveralls:report
